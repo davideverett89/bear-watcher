@@ -1,5 +1,6 @@
 import ultilities from '../helpers/utilities.js';
 import bearData from '../helpers/data/bearData.js';
+import river from '../components/river.js';
 
 
 const trackNewBear = () => {
@@ -9,6 +10,7 @@ const trackNewBear = () => {
     }
     bearData.setBears(newBear);
     document.getElementById("bear-form").reset();
+    river.riverBuilder();
 }
 
 
