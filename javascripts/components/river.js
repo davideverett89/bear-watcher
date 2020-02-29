@@ -4,11 +4,11 @@ import catchData from '../helpers/data/catchData.js';
 
 const catchFishEvent = (e) => {
     const buttonId = e.target.id;
-    const bearName = bearData.getBears().find((bear) => bear.id === buttonId);
+    const bears = bearData.getBears().find((bear) => bear.id === buttonId);
     const fishCaught = [true, false];
     const randomNum = Math.floor(Math.random() * fishCaught.length);
     const catchAttempt = {
-        bearName: bearName.name,
+        bearName: bears.name,
         successfulCatch: fishCaught[randomNum],
         time: moment(Date.now()).format("MMMM Do YYYY, h:mm:ss a")
     };
