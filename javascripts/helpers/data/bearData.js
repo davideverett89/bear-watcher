@@ -8,8 +8,8 @@ const setBears = (newBear) => {
     trackedBears.push(newBear);
 }
 
-const setAttemptedCatches = (bearButtonId, catchAttempt) => {
-    const currentBear = trackedBears.find((bear) => bear.id === bearButtonId);
+const setAttemptedCatches = (bearId, catchAttempt) => {
+    const currentBear = trackedBears.find((bear) => bear.id === bearId);
     currentBear.attemptedCatches.push(catchAttempt);
     console.log(trackedBears);
 }
