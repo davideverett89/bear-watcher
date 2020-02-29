@@ -37,7 +37,7 @@ const showSingleBear = (e) => {
     domString +=        '<div>'
     domString +=            '<div>';
     domString +=                `<h2 class="display-4">${selectedBear.name}</h2>`;
-    domString +=                `<img class="mb-5" src="${selectedBear.image}" alt="whatever">`;
+    domString +=                `<img class="mb-5" src="${selectedBear.image}" alt="${selectedBear.name}">`;
     domString +=            '</div>';
     domString += catchAttemptTableBuilder(bearData.getAttemptedCatches(bearId));
     domString +=        '</div>'
