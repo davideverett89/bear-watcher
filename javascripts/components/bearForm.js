@@ -4,13 +4,18 @@ import river from '../components/river.js';
 
 
 const trackNewBear = () => {
-    const newBear = {
-        name: document.getElementById("bear-name").value,
-        image: document.getElementById("bear-image").value
+    const bearName = document.getElementById("bear-name").value;
+    const bearImage = document.getElementById("bear-image").value;
+    const blankCheck = [bearName, bearImage].some((input) => /^\s*$/.test(input));
+    if (!blankCheck) {
+        const newBear = {
+            name: bearName,
+            image: bearImage
+        }
+        bearData.setBears(newBear);
+        document.getElementById("bear-form").reset();
+        river.riverBuilder();
     }
-    bearData.setBears(newBear);
-    document.getElementById("bear-form").reset();
-    river.riverBuilder();
 }
 
 

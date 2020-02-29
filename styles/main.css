@@ -11,3 +11,7 @@ h1 {
 #bear-form-container {
     background-color: lightblue;
 }
+
+.card-divider {
+    margin: 15px 0;
+}
