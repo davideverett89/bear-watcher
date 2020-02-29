@@ -11,7 +11,8 @@ const trackNewBear = () => {
         const newBear = {
             name: bearName,
             image: bearImage,
-            id: `bear${bearData.getBears().length + 1}`
+            id: `bear${bearData.getBears().length + 1}`,
+            attemptedCatches: []
         }
         bearData.setBears(newBear);
         document.getElementById("bear-form").reset();
