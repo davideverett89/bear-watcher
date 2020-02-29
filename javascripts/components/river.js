@@ -10,7 +10,7 @@ const riverBuilder = () => {
         domString +=        `<img class="card-img-top" src="${bear.image}" alt="bear${i + 1}">`;
         domString +=        '<div class="card-body">';
         domString +=            `<h5 class="card-title">${bear.name}</h5>`;
-        domString +=            '<button class="btn btn-dark">Click Me</button>';
+        domString +=            '<button class="btn btn-outline-primary"><i class="fas fa-fish"></i></button>';
         domString +=        '</div>';
         domString +=    '</div>';
         domString += '</div>';
