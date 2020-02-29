@@ -10,7 +10,8 @@ const trackNewBear = () => {
     if (!blankCheck) {
         const newBear = {
             name: bearName,
-            image: bearImage
+            image: bearImage,
+            id: `bear${bearData.getBears().length + 1}`
         }
         bearData.setBears(newBear);
         document.getElementById("bear-form").reset();
