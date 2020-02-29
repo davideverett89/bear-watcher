@@ -1,18 +1,15 @@
 import ultilities from '../helpers/utilities.js';
 import bearData from '../helpers/data/bearData.js';
-import catchData from '../helpers/data/catchData.js';
 
 const catchFishEvent = (e) => {
-    const buttonId = e.target.id;
-    const bears = bearData.getBears().find((bear) => bear.id === buttonId);
+    const bearButtonId = e.target.id;
     const fishCaught = [true, false];
     const randomNum = Math.floor(Math.random() * fishCaught.length);
     const catchAttempt = {
-        bearName: bears.name,
         successfulCatch: fishCaught[randomNum],
         time: moment(Date.now()).format("MMMM Do YYYY, h:mm:ss a")
     };
-    catchData.setAttemptedCatches(catchAttempt);
+    bearData.setAttemptedCatches(bearButtonId, catchAttempt);
 }
 
 const riverEvents = () => {
