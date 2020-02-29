@@ -9,10 +9,9 @@ h1 {
 }
 
 #bear-form-container {
-    background-color: lightskyblue;
+    background-color: lightblue;
 }
 
-.bear-form {
-    background-color: beige;
-    border-radius: 20px;
+.card-divider {
+    margin: 15px 0;
 }
