@@ -11,6 +11,7 @@ const catchFishEvent = (e) => {
         time: moment(Date.now()).format("MMMM Do YYYY, h:mm:ss a")
     };
     bearData.setAttemptedCatches(bearId, catchAttempt);
+    riverBuilder();
 }
 
 const riverEvents = () => {
@@ -28,6 +29,7 @@ const riverBuilder = () => {
     const bearArr = bearData.getBears();
     let domString = "";
     bearArr.forEach((bear, i) => {
+        let successfulCatches = bear.attemptedCatches.filter((x) => x.successfulCatch === true);
         domString += '<div class="card-divider col-xl-4 col-lg-4 col-md-6 col-sm-12">';
         domString +=    `<div id="${bear.id}" class="card text-center">`;
         domString +=        `<img class="card-img-top" src="${bear.image}" alt="bear${i + 1}">`;
@@ -35,6 +37,7 @@ const riverBuilder = () => {
         domString +=            `<h5 class="card-title">${bear.name}</h5>`;
         domString +=            `<button class="btn btn-outline-info inspect-bear-button"><i class="fas fa-info-circle"></i></button>`;
         domString +=            `<button class="btn btn-outline-primary fish-action-button"><i class="fas fa-fish"></i></button>`;
+        domString +=            `<p>Total Fish Caught: ${successfulCatches.length}</p>`;
         domString +=        '</div>';
         domString +=    '</div>';
         domString += '</div>';

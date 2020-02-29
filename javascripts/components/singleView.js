@@ -6,26 +6,41 @@ const closeSingleEvent = () => {
     $('#singlebearModal').modal('hide');
 }
 
+const catchAttemptTableBuilder = (attemptArr) => {
+    let domString = "";
+    domString += '<table class="table">';
+    domString +=    '<thead class="thead-light">';
+    domString +=        '<tr>';
+    domString +=            '<th scope="col">#</th>';
+    domString +=            '<th scope="col">Successful Catch?</th>';
+    domString +=            '<th scope="col">Time</th>';
+    domString +=        '</tr>';
+    domString +=    '</thead>';
+    domString +=    '<tbody>';
+    attemptArr.forEach((x, i) => {
+        domString +=    '<tr>';
+        domString +=        `<th scope="row">${i + 1}</th>`;
+        domString +=        `<td>${x.successfulCatch === true ? "Yes" : "No"}</td>`;
+        domString +=        `<td>${x.time}</td>`;
+        domString +=    '<tr>';
+    });
+    domString +=    '</tbody>';
+    domString += '</table>';
+    return domString;
+}
+
 const showSingleBear = (e) => {
     let domString = "";
     const bearId = e.target.closest(".card").id;
     const trackedBears = bearData.getBears();
     const selectedBear = trackedBears.find((bear) => bear.id === bearId);
-    domString += '<div class="container">';
-    domString +=    '<div class="row">';
-    domString +=        '<div class="col-6 card-separate">'
+    domString +=        '<div>'
     domString +=            '<div>';
-    domString +=                `<img class="my-img" src="${selectedBear.image}" alt="whatever">`;
+    domString +=                `<h2 class="display-4">${selectedBear.name}</h2>`;
+    domString +=                `<img class="mb-5" src="${selectedBear.image}" alt="whatever">`;
     domString +=            '</div>';
+    domString += catchAttemptTableBuilder(bearData.getAttemptedCatches(bearId));
     domString +=        '</div>'
-    domString +=        '<div class="col-6 card-separate">'
-    domString +=            '<div class="d-flex flex-column justify-content-between p-2">';
-    domString +=                `<h2>${selectedBear.name}</h2>`;
-    domString +=            '</div>';
-    domString +=        '</div>';
-    // domString += adventureTableBuilder(selectedDino.adventures);
-    domString +=    '</div>';
-    domString += '</div>';
     $('#singlebearModal').modal('show');
     utilities.printToDom("single-view", domString);
     document.getElementById("close-single-view").addEventListener("click", closeSingleEvent);

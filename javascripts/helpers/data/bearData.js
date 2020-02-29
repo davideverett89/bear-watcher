@@ -11,7 +11,11 @@ const setBears = (newBear) => {
 const setAttemptedCatches = (bearId, catchAttempt) => {
     const currentBear = trackedBears.find((bear) => bear.id === bearId);
     currentBear.attemptedCatches.push(catchAttempt);
-    console.log(trackedBears);
 }
 
-export default { getBears, setBears, setAttemptedCatches };
+const getAttemptedCatches = (bearId) => {
+    let selectedBear = trackedBears.find((bear) => bear.id === bearId);
+    return selectedBear.attemptedCatches;
+}
+
+export default { getBears, setBears, setAttemptedCatches, getAttemptedCatches };
