@@ -34,10 +34,13 @@ const showSingleBear = (e) => {
     const bearId = e.target.closest(".card").id;
     const trackedBears = bearData.getBears();
     const selectedBear = trackedBears.find((bear) => bear.id === bearId);
+    let totalAttempts = selectedBear.attemptedCatches.length;
+    let totalCatches = selectedBear.attemptedCatches.filter((x) => x.successfulCatch === true).length;
     domString +=        '<div>'
     domString +=            '<div>';
     domString +=                `<h2 class="display-4">${selectedBear.name}</h2>`;
-    domString +=                `<img class="mb-5" src="${selectedBear.image}" alt="${selectedBear.name}">`;
+    domString +=                `<img class="mb-3" src="${selectedBear.image}" alt="${selectedBear.name}">`;
+    domString +=                `<p>Catch Percentage: ${((totalCatches / totalAttempts) * 100).toFixed(1)}%</p>`;
     domString +=            '</div>';
     domString += catchAttemptTableBuilder(bearData.getAttemptedCatches(bearId));
     domString +=        '</div>'

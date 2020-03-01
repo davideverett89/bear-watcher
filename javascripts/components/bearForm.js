@@ -36,7 +36,12 @@ const createBearForm = () => {
     domString +=                '<input type="text" class="form-control" id="bear-image" placeholder="Image">';
     domString +=            '</div>'
     domString +=        '</form>';
-    domString +=        '<button id="submit-bear" type="button" class="btn btn-primary m-auto">Track Bear</button>';
+    domString +=        '<div class="d-flex justify-content-center align-items-center">';
+    domString +=            '<button id="submit-bear" type="button" class="btn btn-primary">Track Bear</button>';
+    domString +=            '<button id="first-place" class="btn btn-outline-success"><i class="fas fa-crown"></i></button>';
+    domString +=            '<button id="second-place" class="btn btn-outline-warning"><i class="fas fa-crown"></i></button>';
+    domString +=            '<button id="third-place" class="btn btn-outline-danger"><i class="fas fa-crown"></i></button>';
+    domString +=        '</div>';
     domString +=    '</div>';
     domString += '</div>';
     ultilities.printToDom("bear-form-container", domString);
