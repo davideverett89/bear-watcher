@@ -37,7 +37,8 @@ const showSingleBear = (e) => {
     domString +=        '<div>'
     domString +=            '<div>';
     domString +=                `<h2 class="display-4">${selectedBear.name}</h2>`;
-    domString +=                `<img class="mb-5" src="${selectedBear.image}" alt="${selectedBear.name}">`;
+    domString +=                `<img class="mb-3" src="${selectedBear.image}" alt="${selectedBear.name}">`;
+    domString +=                `<p>Catch Percentage: ${selectedBear.catchPercentage === undefined ? "" : selectedBear.catchPercentage}%</p>`;
     domString +=            '</div>';
     domString += catchAttemptTableBuilder(bearData.getAttemptedCatches(bearId));
     domString +=        '</div>'
@@ -46,4 +47,4 @@ const showSingleBear = (e) => {
     document.getElementById("close-single-view").addEventListener("click", closeSingleEvent);
 }
 
-export default { showSingleBear };
+export default { showSingleBear, closeSingleEvent };
