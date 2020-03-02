@@ -1,6 +1,7 @@
 import ultilities from '../helpers/utilities.js';
 import bearData from '../helpers/data/bearData.js';
 import river from '../components/river.js';
+import fattestBear from '../components/fattestBearAwards.js';
 
 
 const trackNewBear = () => {
@@ -12,7 +13,7 @@ const trackNewBear = () => {
             name: bearName,
             image: bearImage,
             id: `bear${bearData.getBears().length + 1}`,
-            attemptedCatches: []
+            attemptedCatches: [],
         }
         bearData.setBears(newBear);
         document.getElementById("bear-form").reset();
@@ -46,6 +47,9 @@ const createBearForm = () => {
     domString += '</div>';
     ultilities.printToDom("bear-form-container", domString);
     document.getElementById("submit-bear").addEventListener("click", trackNewBear);
+    document.getElementById("first-place").addEventListener("click", fattestBear.showfirstPlace);
+    document.getElementById("second-place").addEventListener("click", fattestBear.showSecondPlace);
+    document.getElementById("third-place").addEventListener("click", fattestBear.showThirdPlace);
 }
 
 export default { createBearForm };

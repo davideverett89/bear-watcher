@@ -34,12 +34,11 @@ const showSingleBear = (e) => {
     const bearId = e.target.closest(".card").id;
     const trackedBears = bearData.getBears();
     const selectedBear = trackedBears.find((bear) => bear.id === bearId);
-    let catchPercentage = ((selectedBear.attemptedCatches.filter((x) => x.successfulCatch === true).length) / (selectedBear.attemptedCatches.length) * 100).toFixed(0);
     domString +=        '<div>'
     domString +=            '<div>';
     domString +=                `<h2 class="display-4">${selectedBear.name}</h2>`;
     domString +=                `<img class="mb-3" src="${selectedBear.image}" alt="${selectedBear.name}">`;
-    domString +=                `<p>Catch Percentage: ${catchPercentage === "NaN" ? "" : catchPercentage}%</p>`;
+    domString +=                `<p>Catch Percentage: ${selectedBear.catchPercentage === undefined ? "" : selectedBear.catchPercentage}%</p>`;
     domString +=            '</div>';
     domString += catchAttemptTableBuilder(bearData.getAttemptedCatches(bearId));
     domString +=        '</div>'
@@ -48,4 +47,4 @@ const showSingleBear = (e) => {
     document.getElementById("close-single-view").addEventListener("click", closeSingleEvent);
 }
 
-export default { showSingleBear };
+export default { showSingleBear, closeSingleEvent };

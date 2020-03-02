@@ -4,6 +4,8 @@ import singleView from '../components/singleView.js';
 
 const catchFishEvent = (e) => {
     const bearId = e.target.closest(".card").id;
+    const trackedBears = bearData.getBears();
+    const selectedBear = trackedBears.find((bear) => bear.id === bearId);
     const fishCaught = [true, false];
     const randomNum = Math.floor(Math.random() * fishCaught.length);
     const catchAttempt = {
@@ -11,6 +13,7 @@ const catchFishEvent = (e) => {
         time: moment(Date.now()).format("MMMM Do YYYY, h:mm:ss a")
     };
     bearData.setAttemptedCatches(bearId, catchAttempt);
+    selectedBear.catchPercentage = parseInt(((selectedBear.attemptedCatches.filter((x) => x.successfulCatch === true).length) / (selectedBear.attemptedCatches.length) * 100).toFixed(0));
     riverBuilder();
 }
 
