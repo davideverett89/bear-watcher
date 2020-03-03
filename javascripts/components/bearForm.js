@@ -26,7 +26,8 @@ const createBearForm = () => {
     let domString = "";
     domString += '<div id="bear-jumbo" class="jumbotron jumbotron-fluid col-xl-10 col-lg-10 col-md-10 col-10 m-auto p-5">';
     domString +=    '<div class="container">'
-    domString +=        '<h1 class="text-center display-4">Track New Bear</h1>'; 
+    domString +=        '<h1 class="text-center display-4">Katmai National Park</h1>';
+    domString +=        '<h2 class="text-center display-4">Bear Tracker</h2>';
     domString +=        '<form id="bear-form">';
     domString +=            '<div class="form-group">';
     domString +=                '<label for="bear-name" class="lead">Bear Name</label>';
@@ -36,12 +37,15 @@ const createBearForm = () => {
     domString +=                '<label for="bear-image" class="lead">Bear Image</label>';
     domString +=                '<input type="text" class="form-control" id="bear-image" placeholder="Image">';
     domString +=            '</div>'
-    domString +=        '</form>';
-    domString +=        '<div class="d-flex justify-content-center align-items-center">';
     domString +=            '<button id="submit-bear" type="button" class="btn btn-primary">Track Bear</button>';
-    domString +=            '<button id="first-place" class="btn btn-outline-success"><i class="fas fa-crown"></i></button>';
-    domString +=            '<button id="second-place" class="btn btn-outline-warning"><i class="fas fa-crown"></i></button>';
-    domString +=            '<button id="third-place" class="btn btn-outline-danger"><i class="fas fa-crown"></i></button>';
+    domString +=        '</form>';
+    domString +=        '<div class="d-flex flex-column justify-content-around align-items-center">';
+    domString +=           '<h3 class="fattest-bear-title">Fattest Bear Awards:</h3>';
+    domString +=           '<div class="d-flex justify-content-start align-items-center p-2">';
+    domString +=                '<button id="first-place" class="btn btn-success">First Place</button>';
+    domString +=                '<button id="second-place" class="btn btn-warning">Second Place</button>';
+    domString +=                '<button id="third-place" class="btn btn-danger">Third Place</button>';
+    domString +=           '</div>';
     domString +=        '</div>';
     domString +=    '</div>';
     domString += '</div>';
