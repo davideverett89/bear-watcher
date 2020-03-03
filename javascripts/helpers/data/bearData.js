@@ -19,8 +19,11 @@ const getAttemptedCatches = (bearId) => {
 }
 
 const sortPercentages = () => {
-    const catchPercentagesArr = trackedBears.sort((a, b) => b.catchPercentage - a.catchPercentage);
-    return catchPercentagesArr;
+    const sortedPercentagesArr = [];
+    trackedBears.forEach((bear) => {
+        sortedPercentagesArr.push(bear);
+    })
+    return sortedPercentagesArr.sort((a, b) => b.catchPercentage - a.catchPercentage);
 }
 
 export default { getBears, setBears, setAttemptedCatches, getAttemptedCatches, sortPercentages };
