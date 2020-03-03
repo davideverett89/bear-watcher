@@ -6,8 +6,11 @@ import singleView from '../components/singleView.js';
 const showfirstPlace = () => {
     let domString = "";
     let firstPlaceWinner = bearData.sortPercentages()[0];
+    const emptyCheck = bearData.getBears().some((bear) => bear.attemptedCatches.length === 0);
     if (firstPlaceWinner === undefined) {
         alert("No first place winner has been determined.");
+    } else if (emptyCheck){
+        alert("Has not started yet.");
     }
     domString +=    '<div>';
     domString +=        `<h2 class="display-4">First Place Winner: ${firstPlaceWinner.name}!</h2>`;
@@ -22,9 +25,10 @@ const showfirstPlace = () => {
 const showSecondPlace = () => {
     let domString = "";
     let secondPlaceWinner = bearData.sortPercentages()[1];
+    const emptyCheck = bearData.getBears().some((bear) => bear.attemptedCatches.length === 0);
     if (secondPlaceWinner === undefined) {
         alert("No second place winner has been determined.");
-    }
+    } else if ()
     domString +=    '<div>';
     domString +=        `<h2 class="display-4">Second Place Winner: ${secondPlaceWinner.name}!</h2>`;
     domString +=        `<img class="mb-3" src="${secondPlaceWinner.image}" alt="${secondPlaceWinner.name}">`;
